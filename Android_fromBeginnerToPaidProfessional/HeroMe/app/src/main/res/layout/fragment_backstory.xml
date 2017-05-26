@@ -1,0 +1,132 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backstoryFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nathanwelch.herome.Fragments.BackstoryFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/heroName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/supermanTitle"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#fdd101"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/secondText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/secondPower"
+            android:layout_alignLeft="@+id/secondPower"
+            android:layout_alignStart="@+id/secondPower"
+            android:text="secondary power"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/primaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/primaryPower"
+            android:layout_alignLeft="@+id/primaryPower"
+            android:layout_alignStart="@+id/primaryPower"
+            android:text="primary power"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/primaryPower"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/secondText"
+            android:layout_alignLeft="@+id/secondText"
+            android:layout_alignStart="@+id/secondText"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="14dp"
+            android:layout_weight="1"
+            android:background="@drawable/hero_button"
+            android:drawableLeft="@drawable/superstrength"
+            android:drawableRight="@drawable/itemunselected"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:text="super strength"
+            android:textColor="#fac740"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/secondPower"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/startOver"
+            android:layout_alignLeft="@+id/startOver"
+            android:layout_alignStart="@+id/startOver"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="23dp"
+            android:layout_weight="1"
+            android:background="@drawable/hero_button"
+            android:drawableLeft="@drawable/superstrength"
+            android:drawableRight="@drawable/itemunselected"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:text="super strength"
+            android:textColor="#fac740"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/startOver"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="28dp"
+            android:layout_weight="1"
+            android:background="@drawable/hero_solid_button"
+            android:backgroundTint="#fdd101"
+            android:text="start over"
+            android:textColor="#16212b"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Backstory"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="53dp"
+            app:srcCompat="@drawable/bigsupermanlogo" />
+
+    </RelativeLayout>
+
+</FrameLayout>

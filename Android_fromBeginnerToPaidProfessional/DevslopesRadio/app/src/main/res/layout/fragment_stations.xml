@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context="com.example.nathanwelch.devslopesradio.fragments.StationsFragment">
+
+    <!-- includes what is in "layout/content_stations_recycler" right here in our layout/code/app -->
+    <include
+        layout="@layout/content_stations_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</FrameLayout>

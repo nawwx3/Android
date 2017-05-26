@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">HeroMe</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="supermanStory">Friendly neighborhood Superman! Born on Krypton to Jor-El and Lara, Kal-El was quickly shipped off planet as his world was destroyed. Raised on Earth by Johnathan and Martha Kent. Guardian of Metropolis and the World. </string>
+    <string name="supermanTitle">Superman</string>
+    <string name="spidermanStory">After being bitten by a radioactive spider, Peter Parker becomes the Spiderman. After a tragic accident during his childhood Peter is raised by his grandparents. He does whatever a spider can.</string>
+    <string name="spidermanTitle">Spiderman</string>
+    <string name="TMNTStory">Teenage Mutant Ninja Turtles. Love pizza and nunchucks. Raised by a talking rat in the sewers of New York, these turtles keep NY save from the likes of Shredder.</string>
+    <string name="TMNTTitle">TMNT</string>
+
+</resources>

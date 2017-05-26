@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nathanwelch.flaboffit.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/weightBtn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#2ca5f5">
+
+        <ImageView
+            android:id="@+id/imageViewWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/weight" />
+
+        <TextView
+            android:id="@+id/weightComment1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/weightComment3"
+            android:paddingBottom="0dp"
+            android:paddingLeft="5dp"
+            android:text="Weight Lifting"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/weightComment2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/weightComment1"
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:text="Do you even lift?"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/weightComment3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="7dp"
+            android:paddingRight="5dp"
+            android:text="30%"
+            android:textColor="@android:color/background_light"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/weightComment4"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="#5c000000"
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="10 sets"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/yogaBtn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#916bcd">
+
+        <ImageView
+            android:id="@+id/imageViewYoga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/lotus" />
+
+        <TextView
+            android:id="@+id/yogaComment1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/yogaComment3"
+            android:paddingBottom="0dp"
+            android:paddingLeft="5dp"
+            android:text="Yoga"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/yogaComment2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/yogaComment1"
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:text="Namaste"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/yogaComment3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="7dp"
+            android:paddingRight="5dp"
+            android:text="15%"
+            android:textColor="@android:color/background_light"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/yogaComment4"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="#5c000000"
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="1 hour"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/cardioBtn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#52ad56">
+
+        <ImageView
+            android:id="@+id/imageViewCardio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/heart" />
+
+        <TextView
+            android:id="@+id/cardioComment1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/cadrioComment3"
+            android:paddingBottom="0dp"
+            android:paddingLeft="5dp"
+            android:text="Cardio"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cardioComment2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/cardioComment1"
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:text="Run like crazy!"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/cadrioComment3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="7dp"
+            android:paddingRight="5dp"
+            android:text="22%"
+            android:textColor="@android:color/background_light"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/cardioComment4"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="#5c000000"
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="5 miles"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
