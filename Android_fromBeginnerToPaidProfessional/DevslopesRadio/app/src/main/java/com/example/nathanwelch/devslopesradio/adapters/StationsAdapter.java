@@ -1,6 +1,7 @@
 package com.example.nathanwelch.devslopesradio.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,10 +33,12 @@ public class StationsAdapter extends RecyclerView.Adapter<StationsViewHolder>{
     @Override
     public void onBindViewHolder(StationsViewHolder holder, final int position) {
         final Station station = stations.get(position);
+        Log.d("STATIONS_ADAPTER", "onBindViewHolder " + station.getStationTitle());
+
         holder.updateUI(station);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
+                @Override
             public void onClick(View v) {
                 //load the details screen
                 MainActivity.getMainActivity().loadDetailsScreen(station);

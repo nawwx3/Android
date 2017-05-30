@@ -1,13 +1,58 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.nathanwelch.devslopesradio.fragments.DetailsFregment">
+    tools:context="com.example.nathanwelch.devslopesradio.fragments.DetailsFregment"
+    android:id="@+id/details_fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/playedFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/songPlayed"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/songPlayed"
+        android:text="Played From:"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/playlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/playedFrom"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@+id/songPlayed"
+        android:layout_toRightOf="@+id/songPlayed"
+        android:text="playlist"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray" />
+
+    <ImageView
+        android:id="@+id/songPlayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/bicyclemusic" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_songs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/songPlayed"
+        android:padding="15dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

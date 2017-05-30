@@ -64,8 +64,7 @@ public class StationsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_stations, container, false);
 
@@ -78,7 +77,7 @@ public class StationsFragment extends Fragment {
         if(stationType == STATION_TYPE_FEATURED) {
             adapter = new StationsAdapter(DataService.getInstance().getFeaturedStations());
         } else if(stationType == STATION_TYPE_RECENT) {
-            adapter = new StationsAdapter(DataService.getInstance().getFeaturedStations());
+            adapter = new StationsAdapter(DataService.getInstance().getRecentStations());
         } else {
             adapter = new StationsAdapter(DataService.getInstance().getFeaturedStations());
         }
@@ -109,7 +108,6 @@ class HorizontalSpaceItemDecorator extends RecyclerView.ItemDecoration {
         super.getItemOffsets(outRect, view, parent, state);
         outRect.right = spacer;
     }
-
 
 }
 

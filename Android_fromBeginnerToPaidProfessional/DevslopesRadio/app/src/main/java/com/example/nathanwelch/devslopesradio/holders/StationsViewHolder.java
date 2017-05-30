@@ -1,6 +1,7 @@
 package com.example.nathanwelch.devslopesradio.holders;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,8 +30,8 @@ public class StationsViewHolder extends RecyclerView.ViewHolder {
     public void updateUI(Station station) {
         String uri = station.getImgUri();
         int resource = mainImage.getResources().getIdentifier(uri, null, mainImage.getContext().getPackageName());
-        mainImage.setImageResource(resource);
 
+        mainImage.setImageResource(resource);
         titleTextView.setText(station.getStationTitle());
     }
 }
