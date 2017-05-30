@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.nathanwelch.devslopesradio.R;
 import com.example.nathanwelch.devslopesradio.adapters.SongsAdapter;
@@ -24,8 +25,11 @@ import com.example.nathanwelch.devslopesradio.services.DataService;
 public class DetailsFregment extends Fragment {
 
     private static final String ARG_STATION_PIC = "station_pic";
+    private static final String ARG_STATION_NAME = "station_name";
 
     private String stationPic;
+    private String stationName;
+    private TextView playlist;
     private ImageView songPlayed;
     public DetailsFregment() {
         // Required empty public constructor
@@ -41,10 +45,11 @@ public class DetailsFregment extends Fragment {
 
     // TODO: Rename and change types and number of parameters
     public static DetailsFregment newInstance(Station station) {
-        Log.d("CREATE DETAILS", "newInstance");
+        Log.d("DETAILS_FRAGMENT", "newInstance");
         DetailsFregment fragment = new DetailsFregment();
         Bundle args = new Bundle();
         args.putString(ARG_STATION_PIC, station.getImgUri());
+        args.putString(ARG_STATION_NAME, station.getStationTitle());
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,35 +57,41 @@ public class DetailsFregment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("CREATE DETAILS", "onCreate");
+        Log.d("DETAILS_FRAGMENT", "onCreate");
         if (getArguments() != null) {
             stationPic = getArguments().getString(ARG_STATION_PIC);
+            stationName = getArguments().getString(ARG_STATION_NAME);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d("CREATE DETAILS", "onCreateView");
+        Log.d("DETAILS_FRAGMENT", "onCreateView  -> " + stationName);
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_details_fregment, container, false);
         songPlayed = (ImageView)view.findViewById(R.id.songPlayed);
+        playlist = (TextView) view.findViewById(R.id.playlist);
 
-//        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_songs);
-//        recyclerView.setHasFixedSize(true);
-//        Log.d("  onCreateView", "created recycler view");
-//        SongsAdapter adapter;
-//        adapter = new SongsAdapter(DataService.getInstance().getSongList());
-//        Log.d("  onCreateView", "made adapter");
-
+        //set playlist picture
         String uri = stationPic;
         int resource = songPlayed.getResources().getIdentifier(uri, null, songPlayed.getContext().getPackageName());
         songPlayed.setImageResource(resource);
+        //set playlist name
+        playlist.setText(stationName);
 
-//        recyclerView.setAdapter(adapter);
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-//        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-//        recyclerView.setLayoutManager(layoutManager);
-//        Log.d("  onCreateView", "end create");
+
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_songs);
+        recyclerView.setHasFixedSize(true);
+        Log.d("DETAILS_FRAGMENT", "onCreateView..createdRecyclerView");
+        SongsAdapter adapter;
+        adapter = new SongsAdapter(DataService.getInstance().getSongList());
+        Log.d("DETAILS_FRAGMENT", "onCreateView..madeAdapter");
+
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager(layoutManager);
+        Log.d("DETAILS_FRAGMENT", "onCreateView..endCreate");
 
         return view;
     }

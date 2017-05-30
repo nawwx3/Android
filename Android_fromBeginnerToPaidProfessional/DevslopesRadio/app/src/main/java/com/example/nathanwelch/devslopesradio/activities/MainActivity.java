@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     public void loadDetailsScreen(Station selectedStation) {
         setContentView(R.layout.activity_main);
         MainActivity.setMainActivity(this);
-        Log.d("LOAD_DETAILS", "startDetailsScreen");
+        Log.d("MAIN_ACTIVITY", "loadDetailsScreen");
 
 
 //        FragmentManager fm = getSupportFragmentManager();
@@ -56,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadSongScreen(Song song) {
+        Log.d("MAIN_ACTIVITY", "loadSongScreen");
+
         setContentView(R.layout.activity_main);
         MainActivity.setMainActivity(this);
-        Log.d("LOAD_SONG", "start");
 
         SongFragment songFragment = SongFragment.newInstance(song);
         getSupportFragmentManager().beginTransaction().replace(R.id.container_main, songFragment).addToBackStack(null).commit();

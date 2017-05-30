@@ -21,6 +21,8 @@ public class StationsViewHolder extends RecyclerView.ViewHolder {
     public StationsViewHolder(View itemView) {
         super(itemView);
 
+        Log.d("STATIONS_VIEW_HOLDER", "StationsViewHolder !!!!!!!  -> " + itemView);
+
         //grabs references to the image/text on our card
         this.mainImage = (ImageView) itemView.findViewById(R.id.main_image);
         this.titleTextView = (TextView) itemView.findViewById(R.id.main_text);
@@ -28,9 +30,10 @@ public class StationsViewHolder extends RecyclerView.ViewHolder {
 
     //will update the UI after new data has been passed to it
     public void updateUI(Station station) {
+        Log.d("STATIONS_VIEW_HOLDER", "updateUI");
+
         String uri = station.getImgUri();
         int resource = mainImage.getResources().getIdentifier(uri, null, mainImage.getContext().getPackageName());
-
         mainImage.setImageResource(resource);
         titleTextView.setText(station.getStationTitle());
     }

@@ -7,6 +7,7 @@ import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ public class StationsFragment extends Fragment {
 
     //create a new instance and the stationType is passed in from mainFragment
     public static StationsFragment newInstance(int stationType) {
+        Log.d("STATIONS_FRAGMENT", "newInstance");
         StationsFragment fragment = new StationsFragment();
         Bundle args = new Bundle();
         //the type is set in "args"
@@ -56,9 +58,10 @@ public class StationsFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d("STATIONS_FRAGMENT", "onCreate");
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            //so the arguments are grabbed and then saved so we can use them
+            //so the arguments are grabbed and then saved so we can use them'z
             stationType = getArguments().getInt(ARG_STATION_TYPE);
         }
     }
@@ -67,6 +70,8 @@ public class StationsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_stations, container, false);
+
+        Log.d("STATIONS_FRAGMENT", "onCreateView");
 
         //on the fragment (recycler_stations) is where the recyclerView will be placed
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_stations);

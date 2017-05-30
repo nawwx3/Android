@@ -24,10 +24,10 @@ public class DataService {
         // *** pretend we just downloaded featured stations from the internet ***
 
         ArrayList<Station> list = new ArrayList<>();
-        list.add(new Station("Flight Plan (Tunes for Travel", "flightplanmusic"));
+        list.add(new Station("Flight Plan (Tunes for Travel)", "flightplanmusic"));
         list.add(new Station("Two-Wheelin' (Biking Playlist)", "bicyclemusic"));
-        list.add(new Station("Kids Jams (Music for Children", "kidsmusic"));
-        list.add(new Station("Kids Jams (Music for Children", "kidsmusic"));
+        list.add(new Station("Kids Jams (Music for Children)", "kidsmusic"));
+        list.add(new Station("Kids Jams (Music for Children)", "kidsmusic"));
 
         return list;
     }
@@ -49,8 +49,10 @@ public class DataService {
 
     public ArrayList<Song> getSongList() {
         ArrayList<Song> list = new ArrayList<>();
-        list.add(new Song("title", "album"));
-        list.add(new Song("title", "album"));
+        list.add(new Song("title1", "album1"));
+        list.add(new Song("title2", "album2"));
+        list.add(new Song("title3", "album3"));
+        list.add(new Song("title4", "album4"));
         return list;
     }
 }

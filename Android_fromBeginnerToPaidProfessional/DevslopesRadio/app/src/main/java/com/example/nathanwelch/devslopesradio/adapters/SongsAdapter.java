@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.nathanwelch.devslopesradio.R;
+import com.example.nathanwelch.devslopesradio.activities.MainActivity;
 import com.example.nathanwelch.devslopesradio.holders.SongsViewHolder;
 import com.example.nathanwelch.devslopesradio.model.Song;
 
@@ -20,22 +21,27 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsViewHolder> {
 
     private ArrayList<Song> songs;
 
-    public SongsAdapter(ArrayList<Song> songs) {
-        this.songs = songs;
-    }
+    public SongsAdapter(ArrayList<Song> songs) { this.songs = songs; }
 
     @Override
     public int getItemCount() { return songs.size(); }
 
     @Override
     public void onBindViewHolder(SongsViewHolder holder, final int position) {
-//        Log.d("SONGS_ADAPTER", "onBindViewHolder");
+        Log.d("SONGS_ADAPTER", "onBindViewHolder");
 
         final Song song = songs.get(position);
-//        Log.d("SONGS_ADAPTER_out", "onBindViewHolder_t   " + song.getSongTitle());
-//        Log.d("SONGS_ADAPTER_out", "onBindViewHolder_a  " + song.getSongAlbum());
+        Log.d("SONGS_ADAPTER_out", "onBindViewHolder_t   " + song.getSongTitle());
+        Log.d("SONGS_ADAPTER_out", "onBindViewHolder_a  " + song.getSongAlbum());
 
         holder.updateSong(song);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //load the details screen
+                MainActivity.getMainActivity().loadSongScreen(song);
+            }
+        });
     }
 
 //    @Override
@@ -45,9 +51,8 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsViewHolder> {
 //    }
     @Override
     public SongsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.d("SONGS_VIEW_HOLDER", "onCreateViewHolder");
+        Log.d("SONGS_ADAPTER", "onCreateViewHolder");
         View songCard = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_station, parent, false);
         return new SongsViewHolder(songCard);
-
     }
 }

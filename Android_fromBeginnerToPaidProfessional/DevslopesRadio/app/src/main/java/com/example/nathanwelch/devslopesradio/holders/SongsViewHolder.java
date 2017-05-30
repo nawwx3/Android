@@ -19,19 +19,20 @@ public class SongsViewHolder extends RecyclerView.ViewHolder {
 
     public SongsViewHolder(View itemView) {
         super(itemView);
-//        Log.d("SONGS_VIEW_HOLDER", "SongsViewHolder");
+        Log.d("SONGS_VIEW_HOLDER", "SongsViewHolder !!!!!!!  -> " + itemView);
+
 
         //grabs references to the image/text for our clicked song
-        this.songTitle = (TextView) itemView.findViewById(R.id.songTitleFrag);
-        this.songAlbum = (TextView) itemView.findViewById(R.id.songAlbumFrag);
+        this.songTitle = (TextView) itemView.findViewById(R.id.main_text);
+//        this.songAlbum = (TextView) itemView.findViewById(R.id.songAlbumFrag);
     }
 
     public void updateSong(Song song) {
 
-        Log.d("SONGS_VIEW_HOLDER_out", song.getSongTitle());
-        Log.d("SONGS_VIEW_HOLDER_out", song.getSongAlbum());
+        Log.d("SONGS_VIEW_HOLDER_out", "updateSong  -> " + song.getSongTitle());
+//        Log.d("SONGS_VIEW_HOLDER_out", "updateSong  -> " + song.getSongAlbum());
 
         songTitle.setText(song.getSongTitle());
-        songAlbum.setText(song.getSongAlbum());
+//        songAlbum.setText(song.getSongAlbum());
     }
 }

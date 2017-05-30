@@ -21,14 +21,10 @@ public class StationsAdapter extends RecyclerView.Adapter<StationsViewHolder>{
 
     private ArrayList<Station> stations;
 
-    public StationsAdapter(ArrayList<Station> stations) {
-        this.stations = stations;
-    }
+    public StationsAdapter(ArrayList<Station> stations) { this.stations = stations; }
 
     @Override
-    public int getItemCount() {
-        return stations.size();
-    }
+    public int getItemCount() { return stations.size(); }
 
     @Override
     public void onBindViewHolder(StationsViewHolder holder, final int position) {
@@ -38,7 +34,7 @@ public class StationsAdapter extends RecyclerView.Adapter<StationsViewHolder>{
         holder.updateUI(station);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
+            @Override
             public void onClick(View v) {
                 //load the details screen
                 MainActivity.getMainActivity().loadDetailsScreen(station);
@@ -48,6 +44,7 @@ public class StationsAdapter extends RecyclerView.Adapter<StationsViewHolder>{
 
     @Override
     public StationsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.d("STATIONS_ADAPTER", "onCreateViewHolder ");
 
         //       can't inflate from the here, have to do it from the parent -> ( from(parent.getContext() )
         View stationCard = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_station, parent, false);

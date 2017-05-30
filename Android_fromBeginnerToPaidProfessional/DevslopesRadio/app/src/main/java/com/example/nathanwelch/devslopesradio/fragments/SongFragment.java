@@ -40,6 +40,8 @@ public class SongFragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static SongFragment newInstance(Song song) {
+        Log.d("SONG_FRAGMENT", "newInstance");
+
         SongFragment fragment = new SongFragment();
         Bundle args = new Bundle();
         args.putString(ARG_SONG_TITLE, song.getSongTitle());
@@ -51,6 +53,8 @@ public class SongFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("SONG_FRAGMENT", "onCreate");
+
         if (getArguments() != null) {
             title = getArguments().getString(ARG_SONG_TITLE);
             album = getArguments().getString(ARG_SONG_ALBUM);
@@ -63,8 +67,8 @@ public class SongFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_song, container, false);
         songTitle = (TextView) view.findViewById(R.id.songTitleFrag);
         songAlbum = (TextView) view.findViewById(R.id.songAlbumFrag);
-        Log.d("songFrag", title);
-        Log.d("songFrag", album);
+        Log.d("SONG_FRAGMENT", "onCreateView  -> " + title);
+        Log.d("SONG_FRAGMENT", "onCreateView  -> " +album);
 
         songTitle.setText(title);
         songAlbum.setText(album);
