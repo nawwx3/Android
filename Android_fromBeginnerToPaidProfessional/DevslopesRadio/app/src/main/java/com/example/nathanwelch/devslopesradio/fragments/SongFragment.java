@@ -1,6 +1,5 @@
 package com.example.nathanwelch.devslopesradio.fragments;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -64,11 +63,11 @@ public class SongFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_song, container, false);
-        songTitle = (TextView) view.findViewById(R.id.songTitleFrag);
-        songAlbum = (TextView) view.findViewById(R.id.songAlbumFrag);
+        View view = inflater.inflate(R.layout.card_song, container, false);
+        songTitle = (TextView) view.findViewById(R.id.songTitleCard);
+        songAlbum = (TextView) view.findViewById(R.id.songAlbumCard);
         Log.d("SONG_FRAGMENT", "onCreateView  -> " + title);
-        Log.d("SONG_FRAGMENT", "onCreateView  -> " +album);
+        Log.d("SONG_FRAGMENT", "onCreateView  -> " + album);
 
         songTitle.setText(title);
         songAlbum.setText(album);
@@ -77,3 +76,4 @@ public class SongFragment extends Fragment {
     }
 
 }
+

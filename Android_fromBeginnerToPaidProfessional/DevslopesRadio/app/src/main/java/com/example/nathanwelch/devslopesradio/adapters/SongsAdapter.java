@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.nathanwelch.devslopesradio.R;
 import com.example.nathanwelch.devslopesradio.activities.MainActivity;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 public class SongsAdapter extends RecyclerView.Adapter<SongsViewHolder> {
 
     private ArrayList<Song> songs;
+    private ImageView playButton;
 
     public SongsAdapter(ArrayList<Song> songs) { this.songs = songs; }
 
@@ -30,15 +32,17 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsViewHolder> {
     public void onBindViewHolder(SongsViewHolder holder, final int position) {
         Log.d("SONGS_ADAPTER", "onBindViewHolder");
 
+        playButton = (ImageView) holder.itemView.findViewById(R.id.playButton);
         final Song song = songs.get(position);
         Log.d("SONGS_ADAPTER_out", "onBindViewHolder_t   " + song.getSongTitle());
         Log.d("SONGS_ADAPTER_out", "onBindViewHolder_a  " + song.getSongAlbum());
 
         holder.updateSong(song);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //load the details screen
+                //load the song screen
                 MainActivity.getMainActivity().loadSongScreen(song);
             }
         });
@@ -52,7 +56,7 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsViewHolder> {
     @Override
     public SongsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Log.d("SONGS_ADAPTER", "onCreateViewHolder");
-        View songCard = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_station, parent, false);
+        View songCard = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_song, parent, false);
         return new SongsViewHolder(songCard);
     }
 }

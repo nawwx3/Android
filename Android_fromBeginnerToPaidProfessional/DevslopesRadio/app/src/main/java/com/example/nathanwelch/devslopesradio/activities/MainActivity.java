@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.nathanwelch.devslopesradio.R;
-import com.example.nathanwelch.devslopesradio.fragments.DetailsFregment;
+import com.example.nathanwelch.devslopesradio.fragments.PlaylistFragment;
 import com.example.nathanwelch.devslopesradio.fragments.MainFragment;
 import com.example.nathanwelch.devslopesradio.fragments.SongFragment;
 import com.example.nathanwelch.devslopesradio.model.Song;
@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
         MainActivity.setMainActivity(this);
 
-
         FragmentManager fm = getSupportFragmentManager();
         MainFragment mainFragment = (MainFragment)fm.findFragmentById(R.id.container_main);
 
@@ -41,18 +40,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void loadDetailsScreen(Station selectedStation) {
+    public void loadPlaylistScreen(Station selectedStation) {
         setContentView(R.layout.activity_main);
         MainActivity.setMainActivity(this);
-        Log.d("MAIN_ACTIVITY", "loadDetailsScreen");
 
-
-//        FragmentManager fm = getSupportFragmentManager();
-//        DetailsFregment detailsFregment = (DetailsFregment)fm.findFragmentById(R.id.details_fragment);
-
-        DetailsFregment detailsFregment;
-        detailsFregment = DetailsFregment.newInstance(selectedStation);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container_main, detailsFregment).addToBackStack(null).commit();
+        PlaylistFragment playlistFragment;
+        playlistFragment = PlaylistFragment.newInstance(selectedStation);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_main, playlistFragment).addToBackStack(null).commit();
     }
 
     public void loadSongScreen(Song song) {
@@ -63,6 +57,5 @@ public class MainActivity extends AppCompatActivity {
 
         SongFragment songFragment = SongFragment.newInstance(song);
         getSupportFragmentManager().beginTransaction().replace(R.id.container_main, songFragment).addToBackStack(null).commit();
-
     }
 }

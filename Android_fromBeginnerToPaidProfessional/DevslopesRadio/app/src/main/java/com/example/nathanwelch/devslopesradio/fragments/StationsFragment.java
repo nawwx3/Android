@@ -84,7 +84,7 @@ public class StationsFragment extends Fragment {
         } else if(stationType == STATION_TYPE_RECENT) {
             adapter = new StationsAdapter(DataService.getInstance().getRecentStations());
         } else {
-            adapter = new StationsAdapter(DataService.getInstance().getFeaturedStations());
+            adapter = new StationsAdapter(DataService.getInstance().getPartyStations());
         }
 
         recyclerView.addItemDecoration(new HorizontalSpaceItemDecorator(30));

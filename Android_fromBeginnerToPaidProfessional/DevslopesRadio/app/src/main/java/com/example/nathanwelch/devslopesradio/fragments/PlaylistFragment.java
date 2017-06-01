@@ -1,6 +1,7 @@
 package com.example.nathanwelch.devslopesradio.fragments;
 
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,19 +20,23 @@ import com.example.nathanwelch.devslopesradio.services.DataService;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DetailsFregment#newInstance} factory method to
+ * Use the {@link PlaylistFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DetailsFregment extends Fragment {
+public class PlaylistFragment extends Fragment {
 
     private static final String ARG_STATION_PIC = "station_pic";
     private static final String ARG_STATION_NAME = "station_name";
+
+    private static final String ARG_SONG_TITLE = "song_title";
+    private static final String ARG_SONG_ALBUM = "song_album";
 
     private String stationPic;
     private String stationName;
     private TextView playlist;
     private ImageView songPlayed;
-    public DetailsFregment() {
+    private ImageView playButton;
+    public PlaylistFragment() {
         // Required empty public constructor
     }
 
@@ -40,13 +45,13 @@ public class DetailsFregment extends Fragment {
      * this fragment using the provided parameters.
      *
      * @param station the station that was clicked.
-     * @return A new instance of fragment DetailsFregment.
+     * @return A new instance of fragment playlistFregment.
      */
 
     // TODO: Rename and change types and number of parameters
-    public static DetailsFregment newInstance(Station station) {
-        Log.d("DETAILS_FRAGMENT", "newInstance");
-        DetailsFregment fragment = new DetailsFregment();
+    public static PlaylistFragment newInstance(Station station) {
+        Log.d("PLAYLIST_FRAGMENT", "newInstance");
+        PlaylistFragment fragment = new PlaylistFragment();
         Bundle args = new Bundle();
         args.putString(ARG_STATION_PIC, station.getImgUri());
         args.putString(ARG_STATION_NAME, station.getStationTitle());
@@ -57,18 +62,21 @@ public class DetailsFregment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("DETAILS_FRAGMENT", "onCreate");
+
+        Log.d("PLAYLIST_FRAGMENT", "onCreate");
         if (getArguments() != null) {
             stationPic = getArguments().getString(ARG_STATION_PIC);
             stationName = getArguments().getString(ARG_STATION_NAME);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d("DETAILS_FRAGMENT", "onCreateView  -> " + stationName);
+        Log.d("PLAYLIST_FRAGMENT", "onCreateView  -> " + stationName);
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_details_fregment, container, false);
+        View view = inflater.inflate(R.layout.fragment_playlist_fregment, container, false);
         songPlayed = (ImageView)view.findViewById(R.id.songPlayed);
         playlist = (TextView) view.findViewById(R.id.playlist);
 
@@ -79,20 +87,37 @@ public class DetailsFregment extends Fragment {
         //set playlist name
         playlist.setText(stationName);
 
-
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_songs);
         recyclerView.setHasFixedSize(true);
-        Log.d("DETAILS_FRAGMENT", "onCreateView..createdRecyclerView");
+        Log.d("PLAYLIST_FRAGMENT", "onCreateView..createdRecyclerView");
         SongsAdapter adapter;
         adapter = new SongsAdapter(DataService.getInstance().getSongList());
-        Log.d("DETAILS_FRAGMENT", "onCreateView..madeAdapter");
+        Log.d("PLAYLIST_FRAGMENT", "onCreateView..madeAdapter");
 
+        recyclerView.addItemDecoration(new VerticalSpaceItemDecorator(15));
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        Log.d("DETAILS_FRAGMENT", "onCreateView..endCreate");
+        Log.d("PLAYLIST_FRAGMENT", "onCreateView..endCreate");
 
         return view;
     }
+
+}
+
+
+class VerticalSpaceItemDecorator extends RecyclerView.ItemDecoration {
+    private final int spacer;
+
+    public VerticalSpaceItemDecorator(int spacer) {
+        this.spacer = spacer;
+    }
+
+    @Override
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
+        outRect.top = spacer;
+    }
+
 }

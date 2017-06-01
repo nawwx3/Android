@@ -36,8 +36,8 @@ public class StationsAdapter extends RecyclerView.Adapter<StationsViewHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //load the details screen
-                MainActivity.getMainActivity().loadDetailsScreen(station);
+                //load the playlist screen
+                MainActivity.getMainActivity().loadPlaylistScreen(station);
             }
         });
     }

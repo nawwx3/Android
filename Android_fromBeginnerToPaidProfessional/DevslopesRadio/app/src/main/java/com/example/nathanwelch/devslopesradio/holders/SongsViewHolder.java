@@ -1,8 +1,8 @@
 package com.example.nathanwelch.devslopesradio.holders;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.nathanwelch.devslopesradio.R;
@@ -13,26 +13,21 @@ import com.example.nathanwelch.devslopesradio.model.Song;
  */
 
 public class SongsViewHolder extends RecyclerView.ViewHolder {
-    private TextView songTitle;
-    private TextView songAlbum;
-    private TextView songImage;
+    private TextView songTitleCard;
+    private TextView songAlbumCard;
+    private ImageView playButton;
 
     public SongsViewHolder(View itemView) {
         super(itemView);
-        Log.d("SONGS_VIEW_HOLDER", "SongsViewHolder !!!!!!!  -> " + itemView);
-
-
         //grabs references to the image/text for our clicked song
-        this.songTitle = (TextView) itemView.findViewById(R.id.main_text);
-//        this.songAlbum = (TextView) itemView.findViewById(R.id.songAlbumFrag);
+        this.songTitleCard = (TextView) itemView.findViewById(R.id.songTitleCard);
+        this.songAlbumCard = (TextView) itemView.findViewById(R.id.songAlbumCard);
+        this.playButton = (ImageView) itemView.findViewById(R.id.playButton);
     }
 
     public void updateSong(Song song) {
-
-        Log.d("SONGS_VIEW_HOLDER_out", "updateSong  -> " + song.getSongTitle());
-//        Log.d("SONGS_VIEW_HOLDER_out", "updateSong  -> " + song.getSongAlbum());
-
-        songTitle.setText(song.getSongTitle());
-//        songAlbum.setText(song.getSongAlbum());
+        songTitleCard.setText(song.getSongTitle());
+        songAlbumCard.setText(song.getSongAlbum());
     }
+
 }
