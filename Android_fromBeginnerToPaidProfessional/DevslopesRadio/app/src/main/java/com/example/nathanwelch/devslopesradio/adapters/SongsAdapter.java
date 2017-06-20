@@ -6,11 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.nathanwelch.devslopesradio.R;
 import com.example.nathanwelch.devslopesradio.activities.MainActivity;
+import com.example.nathanwelch.devslopesradio.fragments.SongFragment;
 import com.example.nathanwelch.devslopesradio.holders.SongsViewHolder;
 import com.example.nathanwelch.devslopesradio.model.Song;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -20,8 +24,11 @@ import java.util.ArrayList;
 
 public class SongsAdapter extends RecyclerView.Adapter<SongsViewHolder> {
 
+    SongFragment.Communicator comm;
     private ArrayList<Song> songs;
     private ImageView playButton;
+    private TextView songTitle;
+    private TextView songAlbum;
 
     public SongsAdapter(ArrayList<Song> songs) { this.songs = songs; }
 
@@ -32,8 +39,11 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsViewHolder> {
     public void onBindViewHolder(SongsViewHolder holder, final int position) {
         Log.d("SONGS_ADAPTER", "onBindViewHolder");
 
-        playButton = (ImageView) holder.itemView.findViewById(R.id.playButton);
+//        playButton = (ImageView) holder.itemView.findViewById(R.id.playButton);
         final Song song = songs.get(position);
+        songTitle = (TextView) holder.itemView.findViewById(R.id.songTitle);
+        songAlbum = (TextView) holder.itemView.findViewById(R.id.songAlbum);
+
         Log.d("SONGS_ADAPTER_out", "onBindViewHolder_t   " + song.getSongTitle());
         Log.d("SONGS_ADAPTER_out", "onBindViewHolder_a  " + song.getSongAlbum());
 
@@ -43,7 +53,12 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsViewHolder> {
             @Override
             public void onClick(View v) {
                 //load the song screen
-                MainActivity.getMainActivity().loadSongScreen(song);
+                Log.d("SONGS_ADAPTER_out", "onClick   " + song.getSongTitle());
+
+                comm.respond(song);
+
+//                songTitle.setText(song.getSongTitle());
+//                songAlbum.setText(song.getSongAlbum());
             }
         });
     }

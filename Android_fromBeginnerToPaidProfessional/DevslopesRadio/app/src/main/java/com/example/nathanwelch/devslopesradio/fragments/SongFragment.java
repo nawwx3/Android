@@ -75,5 +75,13 @@ public class SongFragment extends Fragment {
         return view;
     }
 
+    public void changeSong(Song song) {
+        songTitle.setText(song.getSongTitle());
+        songTitle.setText(song.getSongAlbum());
+    }
+
+    public interface Communicator {
+        void respond(Song song);
+    }
 }
 

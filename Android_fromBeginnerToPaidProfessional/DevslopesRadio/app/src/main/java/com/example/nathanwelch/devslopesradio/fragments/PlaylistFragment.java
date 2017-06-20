@@ -76,7 +76,7 @@ public class PlaylistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d("PLAYLIST_FRAGMENT", "onCreateView  -> " + stationName);
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_playlist_fregment, container, false);
+        View view = inflater.inflate(R.layout.fragment_playlist, container, false);
         songPlayed = (ImageView)view.findViewById(R.id.songPlayed);
         playlist = (TextView) view.findViewById(R.id.playlist);
 

@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.nathanwelch.devslopesradio.R;
-import com.example.nathanwelch.devslopesradio.fragments.PlaylistFragment;
 import com.example.nathanwelch.devslopesradio.fragments.MainFragment;
+import com.example.nathanwelch.devslopesradio.fragments.PlaylistSongBarMerge;
 import com.example.nathanwelch.devslopesradio.fragments.SongFragment;
 import com.example.nathanwelch.devslopesradio.model.Song;
 import com.example.nathanwelch.devslopesradio.model.Station;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SongFragment.Communicator {
+
+    private static MainActivity mainActivity;
 
     public static MainActivity getMainActivity() {
         return mainActivity;
@@ -21,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private static void setMainActivity(MainActivity mainActivity) {
         MainActivity.mainActivity = mainActivity;
     }
-
-    private static MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +44,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         MainActivity.setMainActivity(this);
 
-        PlaylistFragment playlistFragment;
-        playlistFragment = PlaylistFragment.newInstance(selectedStation);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container_main, playlistFragment).addToBackStack(null).commit();
+        PlaylistSongBarMerge playlistSongBarMerge;
+        playlistSongBarMerge = PlaylistSongBarMerge.newInstance(selectedStation);
+//        PlaylistFragment playlistFragment;
+//        playlistFragment = PlaylistFragment.newInstance(selectedStation);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_main, playlistSongBarMerge).addToBackStack(null).commit();
     }
 
-    public void loadSongScreen(Song song) {
+    public void loadSong(Song song) {
         Log.d("MAIN_ACTIVITY", "loadSongScreen");
 
         setContentView(R.layout.activity_main);
@@ -57,5 +59,12 @@ public class MainActivity extends AppCompatActivity {
 
         SongFragment songFragment = SongFragment.newInstance(song);
         getSupportFragmentManager().beginTransaction().replace(R.id.container_main, songFragment).addToBackStack(null).commit();
+    }
+
+    @Override
+    public void respond(Song song) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        SongFragment songFragment = (SongFragment) fragmentManager.findFragmentById(R.id.songBar_Fragment);
+        songFragment.changeSong(song);
     }
 }

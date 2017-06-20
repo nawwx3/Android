@@ -15,14 +15,14 @@ import com.example.nathanwelch.devslopesradio.model.Song;
 public class SongsViewHolder extends RecyclerView.ViewHolder {
     private TextView songTitleCard;
     private TextView songAlbumCard;
-    private ImageView playButton;
+//    private ImageView playButton;
 
     public SongsViewHolder(View itemView) {
         super(itemView);
         //grabs references to the image/text for our clicked song
         this.songTitleCard = (TextView) itemView.findViewById(R.id.songTitleCard);
         this.songAlbumCard = (TextView) itemView.findViewById(R.id.songAlbumCard);
-        this.playButton = (ImageView) itemView.findViewById(R.id.playButton);
+//        this.playButton = (ImageView) itemView.findViewById(R.id.playButton);
     }
 
     public void updateSong(Song song) {
