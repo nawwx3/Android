@@ -1,5 +1,6 @@
 package com.example.nathanwelch.bootcamplocator.fragment;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
